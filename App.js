@@ -6,6 +6,7 @@ import { AppLoading } from "expo";
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
+import Gate from "./components/Gate";
 
 export default function App() {
     const [isReady, setIsReady] = useState(false);
@@ -35,7 +36,7 @@ export default function App() {
     const handleOnFinish = () => setIsReady(true);
 
     return isReady ? (
-        <Text>Ready!!</Text>
+        <Gate />
     ) : (
         <AppLoading
             startAsync={handleStartAsync}
