@@ -1,16 +1,27 @@
-import React, { useState } from "react";
-import { Text, View } from "react-native";
+import React from "react";
+import { Text, View, TouchableOpacity } from "react-native";
+import { useSelector, useDispatch } from "react-redux";
+import { logOut, logIn } from "../redux/userSlice";
 
-const Gate = () => {
-    const [isLogged, setIsLogged] = useState(false);
+export default () => {
+    const { isLogged } = useSelector((state) => state.userReducer);
+    const dispatch = useDispatch();
 
     return (
         <View
             style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
         >
-            {isLogged ? <Text>is Logged</Text> : <Text>Login Please !!</Text>}
+            {isLogged ? (
+                <TouchableOpacity onPress={() => dispatch(logOut())}>
+                    <Text>is Logged</Text>
+                </TouchableOpacity>
+            ) : (
+                <TouchableOpacity
+                    onPress={() => dispatch(logIn({ token: "test.token" }))}
+                >
+                    <Text>Login Please !!</Text>
+                </TouchableOpacity>
+            )}
         </View>
     );
 };
-
-export default Gate;
