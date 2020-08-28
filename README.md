@@ -2,6 +2,10 @@
 
 > 리액트 네이티브 엑스포 Redux 환경 기본 셋팅 숙지 실습
 
+```
+expo template type : blank
+```
+
 ## 1. APP Setup
 
 ### 1 - 1. 항목
@@ -26,5 +30,3 @@ yarn add redux
 yarn add react-redux
 yarn add redux-persist
 ```
-
-template
